@@ -39,6 +39,10 @@ sali:Degrees a sal:Degrees .
 
 sali:Energy a sal:Energy .
 
+sali:Epoch a sal:Epoch .
+
+sali:ErroneousOccupancyCount a sal:ErroneousOccupancyCount .
+
 sali:Flow a sal:Flow .
 
 sali:GigaByte a sal:GigaByte .
@@ -85,6 +89,10 @@ sali:MilliWatts a sal:MilliWatts .
 
 sali:Minutes a sal:Minutes .
 
+sali:NotApplicable a sal:NotApplicable .
+
+sali:OccupancyCount a sal:OccupancyCount .
+
 sali:PartsPerMillion a sal:PartsPerMillion .
 
 sali:Pascal a sal:Pascal .
@@ -112,8 +120,6 @@ sali:RelativeTime a sal:RelativeTime .
 sali:RotationsPerMinute a sal:RotationsPerMinute .
 
 sali:Temperature a sal:Temperature .
-
-sali:Time a sal:Time .
 
 sali:Unitless a sal:Unitless .
 

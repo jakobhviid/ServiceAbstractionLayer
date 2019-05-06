@@ -59,8 +59,21 @@
 ###  https://ontology.hviidnet.com/sal2.ttl#providesInformation
 :providesInformation rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
-                     rdfs:domain :ServiceEndpoint ;
                      rdfs:range :Information .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#providesRequestInformation
+:providesRequestInformation rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:domain :ServiceEndpoint ;
+                            rdfs:range :RequestInformation .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#providesResponseInformation
+:providesResponseInformation rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf owl:topObjectProperty ;
+                             rdfs:domain :ServiceEndpoint ;
+                             rdfs:range :ResponseInformation .
 
 
 #################################################################
@@ -91,22 +104,43 @@
 ###  https://ontology.hviidnet.com/sal2.ttl#read
 :read rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
-      rdfs:domain :ServiceEndpoint ;
       rdfs:range xsd:boolean .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#read_url
+:read_url rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :KafkaRServiceEndpoint ,
+                      :KafkaRWServiceEndpoint ;
+          rdfs:range xsd:string .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#url
 :url rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
-     rdfs:domain :ServiceEndpoint ;
+     rdfs:domain :RestServiceEndpoint ;
      rdfs:range xsd:string .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#verb
+:verb rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :RestServiceEndpoint ;
+      rdfs:range xsd:string .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#write
 :write rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
-       rdfs:domain :ServiceEndpoint ;
        rdfs:range xsd:boolean .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#write_url
+:write_url rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :KafkaRWServiceEndpoint ,
+                       :KafkaWServiceEndpoint ;
+           rdfs:range xsd:string .
 
 
 #################################################################
@@ -206,6 +240,16 @@ schema:Organization rdf:type owl:Class .
         rdfs:subClassOf :Modality .
 
 
+###  https://ontology.hviidnet.com/sal2.ttl#Epoch
+:Epoch rdf:type owl:Class ;
+       rdfs:subClassOf :Unit .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#ErroneousOccupancyCount
+:ErroneousOccupancyCount rdf:type owl:Class ;
+                         rdfs:subClassOf :Modality .
+
+
 ###  https://ontology.hviidnet.com/sal2.ttl#Flow
 :Flow rdf:type owl:Class ;
       rdfs:subClassOf :Modality .
@@ -248,6 +292,26 @@ schema:Organization rdf:type owl:Class .
 ###  https://ontology.hviidnet.com/sal2.ttl#JoulesPerCubicMeter
 :JoulesPerCubicMeter rdf:type owl:Class ;
                      rdfs:subClassOf :Unit .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#KafkaRServiceEndpoint
+:KafkaRServiceEndpoint rdf:type owl:Class ;
+                       rdfs:subClassOf :KafkaServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#KafkaRWServiceEndpoint
+:KafkaRWServiceEndpoint rdf:type owl:Class ;
+                        rdfs:subClassOf :KafkaServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#KafkaServiceEndpoint
+:KafkaServiceEndpoint rdf:type owl:Class ;
+                      rdfs:subClassOf :PubsubServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#KafkaWServiceEndpoint
+:KafkaWServiceEndpoint rdf:type owl:Class ;
+                       rdfs:subClassOf :KafkaServiceEndpoint .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#Kelvin
@@ -329,6 +393,16 @@ schema:Organization rdf:type owl:Class .
 :Modality rdf:type owl:Class .
 
 
+###  https://ontology.hviidnet.com/sal2.ttl#NotApplicable
+:NotApplicable rdf:type owl:Class ;
+               rdfs:subClassOf :TemporalAspect .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#OccupancyCount
+:OccupancyCount rdf:type owl:Class ;
+                rdfs:subClassOf :Modality .
+
+
 ###  https://ontology.hviidnet.com/sal2.ttl#PartsPerMillion
 :PartsPerMillion rdf:type owl:Class ;
                  rdfs:subClassOf :Unit .
@@ -374,6 +448,11 @@ schema:Organization rdf:type owl:Class .
           rdfs:subClassOf :Modality .
 
 
+###  https://ontology.hviidnet.com/sal2.ttl#PubsubServiceEndpoint
+:PubsubServiceEndpoint rdf:type owl:Class ;
+                       rdfs:subClassOf :ServiceEndpoint .
+
+
 ###  https://ontology.hviidnet.com/sal2.ttl#Rain
 :Rain rdf:type owl:Class ;
       rdfs:subClassOf :Modality .
@@ -387,6 +466,21 @@ schema:Organization rdf:type owl:Class .
 ###  https://ontology.hviidnet.com/sal2.ttl#RelativeTime
 :RelativeTime rdf:type owl:Class ;
               rdfs:subClassOf :Modality .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#RequestInformation
+:RequestInformation rdf:type owl:Class ;
+                    rdfs:subClassOf :Information .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#ResponseInformation
+:ResponseInformation rdf:type owl:Class ;
+                     rdfs:subClassOf :Information .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#RestServiceEndpoint
+:RestServiceEndpoint rdf:type owl:Class ;
+                     rdfs:subClassOf :ServiceEndpoint .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#RotationsPerMinute
@@ -409,11 +503,6 @@ schema:Organization rdf:type owl:Class .
 
 ###  https://ontology.hviidnet.com/sal2.ttl#TemporalAspect
 :TemporalAspect rdf:type owl:Class .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#Time
-:Time rdf:type owl:Class ;
-      rdfs:subClassOf :Unit .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#Unit
@@ -463,9 +552,11 @@ schema:Organization rdf:type owl:Class .
                 :CO2
                 :Certainty
                 :Energy
+                :ErroneousOccupancyCount
                 :Flow
                 :Humidity
                 :Illuminance
+                :OccupancyCount
                 :Performance
                 :Power
                 :PowerFlexibility
@@ -481,6 +572,7 @@ schema:Organization rdf:type owl:Class .
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :Archival
+                :NotApplicable
                 :Prediction
                 :RealTime
               )
@@ -499,6 +591,7 @@ schema:Organization rdf:type owl:Class .
                 :DegreeCelcius
                 :DegreeFahrenheit
                 :Degrees
+                :Epoch
                 :GigaByte
                 :Hertz
                 :Hours
@@ -523,7 +616,6 @@ schema:Organization rdf:type owl:Class .
                 :Pascal
                 :Percent
                 :RotationsPerMinute
-                :Time
                 :Unitless
                 :Volts
                 :Watts
