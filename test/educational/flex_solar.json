@@ -1,0 +1,14 @@
+[
+    [
+        "SDU",
+        "None",
+        "jah.demo/solar",
+        "1",
+        "http://brickschema.org/ttl/Brick.ttl#Outdoors",
+        "outdoors",
+        "[].WattHours",
+        "https://ontology.hviidnet.com/sal2instances.ttl#WattHours",
+        "[].Timestamp",
+        "https://ontology.hviidnet.com/sal2instances.ttl#DateTime"
+    ]
+]

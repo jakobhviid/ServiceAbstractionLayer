@@ -1,0 +1,55 @@
+PREFIX schema: <http://schema.org/version/latest/schema.ttl#>
+PREFIX brick:  <http://brickschema.org/ttl/Brick.ttl#>
+PREFIX sal:    <https://ontology.hviidnet.com/sal2.ttl#>
+PREFIX sali:   <https://ontology.hviidnet.com/sal2instances.ttl#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?organization ?building ?url ?priority ?loc_type ?loc_name
+       ?temp_location ?temp_unit
+       ?hum_location ?hum_unit
+       ?time_location ?time_unit
+WHERE {
+    # org
+    ?org rdf:type/rdfs:subClassOf* schema:Organization .
+    ?org schema:legalName ?organization .
+    ?sep sal:ownedBy ?org .
+    
+    # loc(ation)
+    ?loc rdf:type ?loc_type .
+    ?loc_type rdfs:subClassOf* brick:Location .
+    ?loc brick:label ?loc_name .
+    
+    # sep
+    ?sep rdf:type/rdfs:subClassOf* sal:ServiceEndpoint .
+    ?sep sal:url ?url .
+    ?sep sal:priority ?priority .
+    
+    # temp
+    ?temp rdf:type/rdfs:subClassOf* sal:Information .
+    ?temp sal:location ?temp_location .
+    ?temp sal:hasModality sali:Temperature .
+    ?temp sal:hasUnit ?temp_unit .
+    ?temp sal:hasTemporalAspect sali:Prediction .
+    ?temp sal:hasLocation ?loc .
+    ?sep sal:hasInformation ?temp .
+    
+    # hum
+    ?hum rdf:type/rdfs:subClassOf* sal:Information .
+    ?hum sal:location ?hum_location .
+    ?hum sal:hasModality sali:Humidity .
+    ?hum sal:hasUnit ?hum_unit .
+    ?hum sal:hasTemporalAspect sali:Prediction .
+    ?hum sal:hasLocation ?loc .
+    ?sep sal:hasInformation ?hum .
+    
+    # time
+    ?time rdf:type/rdfs:subClassOf* sal:Information .
+    ?time sal:location ?time_location .
+    ?time sal:hasModality sali:AbsoluteTime .
+    ?time sal:hasUnit ?time_unit .
+    ?time sal:hasTemporalAspect sali:Prediction .
+    ?time sal:hasLocation ?loc .
+    ?sep sal:hasInformation ?time .
+}
+

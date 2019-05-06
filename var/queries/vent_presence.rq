@@ -1,0 +1,37 @@
+PREFIX schema: <http://schema.org/version/latest/schema.ttl#>
+PREFIX brick:  <http://brickschema.org/ttl/Brick.ttl#>
+PREFIX sal:    <https://ontology.hviidnet.com/sal2.ttl#>
+PREFIX sali:   <https://ontology.hviidnet.com/sal2instances.ttl#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?organization ?building ?url ?priority ?loc_type ?loc_name
+       ?location ?unit
+WHERE {
+    # org
+    ?org rdf:type/rdfs:subClassOf* schema:Organization .
+    ?org schema:legalName ?organization .
+    
+    # sep
+    ?sep rdf:type/rdfs:subClassOf* sal:ServiceEndpoint .
+    ?sep sal:url ?url .
+    ?sep sal:priority ?priority .
+    
+    # info
+    ?info rdf:type/rdfs:subClassOf* sal:Information .
+    ?info sal:location ?location .
+    ?info sal:hasModality sali:Presence .
+    ?info sal:hasUnit ?unit .
+    ?info sal:hasTemporalAspect sali:Prediction .
+    ?info sal:hasLocation ?loc .
+    
+    # loc(ation)
+    ?loc rdf:type ?loc_type .
+    ?loc_type rdfs:subClassOf* brick:Location .
+    ?loc brick:label ?loc_name .
+    
+    # relations
+    ?sep sal:ownedBy ?org .
+    ?sep sal:hasInformation ?info .
+}
+

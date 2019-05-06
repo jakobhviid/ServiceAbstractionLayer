@@ -1,0 +1,75 @@
+#!/usr/bin/env python3.5
+
+import rdflib
+from sys import argv, exit
+
+def query (q):
+    ro = g.query(q)
+    result = []
+    for row in ro:
+        r = []
+        for element in row:
+            r.append(element)
+        result.append(r)
+    return result
+
+# guard: command line arguments
+if len(argv) != 3:
+    print('Syntax: %s INPUT_FILENAME OUTPUT_FILENAME' % argv[0])
+    print('        %s ../var/sal2.ttl ../var/sal2instances.ttl' % argv[0])
+    exit(0)
+
+input_filename  = argv[1]
+output_filename = argv[2]
+
+# load model
+g = rdflib.Graph()
+g.parse(input_filename, format='turtle')
+RDF = rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+
+# graph for predifined instances
+gi = rdflib.Graph()
+SAL = rdflib.Namespace('https://ontology.hviidnet.com/sal2.ttl#')
+gi.bind('sal', SAL)
+SALI = rdflib.Namespace('https://ontology.hviidnet.com/sal2instances.ttl#')
+gi.bind('sali', SALI)
+
+# produce unit instances
+q = '''
+SELECT DISTINCT ?unit
+WHERE {
+    ?unit rdfs:subClassOf :Unit .
+}
+'''
+units = list(map(lambda element: element[0], query(q)))
+for unit in units:
+    name = str(unit).split('#')[-1]
+    gi.add( (SALI[name], RDF['type'], unit) )
+
+# produce modality instances
+q = '''
+SELECT DISTINCT ?modality
+WHERE {
+    ?modality rdfs:subClassOf :Modality .
+}
+'''
+modalities = list(map(lambda element: element[0], query(q)))
+for modality in modalities:
+    name = str(modality).split('#')[-1]
+    gi.add( (SALI[name], RDF['type'], modality) )
+
+# produce modality instances
+q = '''
+SELECT DISTINCT ?ta
+WHERE {
+    ?ta rdfs:subClassOf :TemporalAspect .
+}
+'''
+tas = list(map(lambda element: element[0], query(q)))
+for ta in tas:
+    name = str(ta).split('#')[-1]
+    gi.add( (SALI[name], RDF['type'], ta) )
+
+# store result
+gi.serialize(output_filename, 'turtle')
+

@@ -1,0 +1,68 @@
+#!/usr/bin/env python3.6
+
+from sys import argv, exit
+from time import time
+from os import listdir, mkdir
+from os.path import exists
+import rdflib
+import json
+
+# guard: args
+if len(argv) != 7:
+    print('Syntax: %s SCHEMA_FILENAME BRICK_FILENAME MODEL_FILENAME QUERY_PATH RESULT_PATH REPETITION_COUNT' % argv[0])
+    print('        %s ../var/schema.ttl ../var/Brick.ttl ../var/models/default.ttl ../var/queries/ ../test/default/ 100' % argv[0])
+    exit(1)
+schema_filename = argv[1]
+brick_filename = argv[2]
+model_filename  = argv[3]
+query_path      = argv[4]
+output_path     = argv[5]
+repetitions     = int(argv[6])
+
+model_name = model_filename.split('/')[-1].split('.')[0]
+
+# create result path
+if not exists(output_path):
+    mkdir(output_path)
+
+# build graph
+g = rdflib.Graph()
+g.parse(schema_filename, format='turtle')
+g.parse(brick_filename, format='turtle')
+g.parse(model_filename, format='turtle')
+
+for filename in listdir(query_path):
+    if not filename.endswith('.rq'): continue
+
+    query_name = filename[:-3]
+    sparql_filename = '%s%s' % (query_path, filename)
+    result_filename = '%s%s.json' % (output_path, query_name)
+    summary_filename = '%s%s.csv' % (output_path, query_name)
+
+    # read query
+    with open(sparql_filename) as fo:
+        query = ''.join(fo.readlines())
+
+    # execute queries
+    times = []
+    for i in range(repetitions):
+        # perform query
+        t0 = time()
+        ro = g.query(query)
+        t1 = time()
+
+        times.append(t1-t0)
+
+    # store query outcome
+    s = list(map(lambda row: list(map(lambda element: str(element), row)), ro))
+    result = [json.dumps(s, sort_keys=True, indent=4, separators=(',', ': '))+'\n']
+    with open(result_filename, 'w') as fo:
+        fo.writelines(result)
+
+    # store summary information
+    lines = ["#, model_name, query_name, time, repetition"]
+    for i in range(len(times)):
+        lines.append(' , %s, %s, %f, %u' % (model_name, query_name, times[i], i))
+    with open(summary_filename, 'w') as fo:
+        fo.writelines(''.join(map(lambda line: line+'\n', lines)))
+

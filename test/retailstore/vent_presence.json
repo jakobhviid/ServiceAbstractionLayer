@@ -1,0 +1,22 @@
+[
+    [
+        "?",
+        "None",
+        "jah.demo/presence/r1",
+        "1",
+        "http://brickschema.org/ttl/Brick.ttl#Room",
+        "Room_1",
+        "[].Count",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Count"
+    ],
+    [
+        "?",
+        "None",
+        "jah.demo/presence/r2",
+        "1",
+        "http://brickschema.org/ttl/Brick.ttl#Room",
+        "Room_2",
+        "[].Present",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Boolean"
+    ]
+]

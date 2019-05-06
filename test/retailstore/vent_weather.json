@@ -1,0 +1,16 @@
+[
+    [
+        "?",
+        "None",
+        "jah.demo/weather",
+        "1",
+        "http://brickschema.org/ttl/Brick.ttl#Building",
+        "F\u00f8tex",
+        "[].Temp",
+        "https://ontology.hviidnet.com/sal2instances.ttl#DegreeCelcius",
+        "[].Humidity",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Percentage",
+        "[].Timestamp",
+        "https://ontology.hviidnet.com/sal2instances.ttl#DateTime"
+    ]
+]

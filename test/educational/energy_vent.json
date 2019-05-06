@@ -1,0 +1,30 @@
+[
+    [
+        "SDU",
+        "None",
+        "jah.demo/vent/r1",
+        "1",
+        "http://brickschema.org/ttl/Brick.ttl#Room",
+        "Room_1",
+        "[].Power",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Watts",
+        "[].Certainty",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Percent",
+        "[].Timestamp",
+        "https://ontology.hviidnet.com/sal2instances.ttl#DateTime"
+    ],
+    [
+        "SDU",
+        "None",
+        "jah.demo/vent/r2",
+        "1",
+        "http://brickschema.org/ttl/Brick.ttl#Room",
+        "Room_2",
+        "[].Power",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Watts",
+        "[].Certainty",
+        "https://ontology.hviidnet.com/sal2instances.ttl#Percent",
+        "[].Timestamp",
+        "https://ontology.hviidnet.com/sal2instances.ttl#DateTime"
+    ]
+]

@@ -1,0 +1,253 @@
+@prefix default: <https://ontology.hviidnet.com/defaultbuilding.ttl#> .
+@prefix ns1: <http://schema.org/version/latest/schema.ttl#> .
+@prefix ns2: <http://brickschema.org/ttl/Brick.ttl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sal: <https://ontology.hviidnet.com/sal2.ttl#> .
+@prefix sali: <https://ontology.hviidnet.com/sal2instances.ttl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#services/energy_benchmark> a sal:Service ;
+    sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/21> ;
+    sal:name "energy_benchmark" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#services/flexibility_estimator> a sal:Service ;
+    sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/24> ;
+    sal:name "flexibility_estimator" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#services/presence> a sal:Service ;
+    sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/6>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/7> ;
+    sal:name "presence" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#services/solar_storage> a sal:Service ;
+    sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/18> ;
+    sal:name "solar_storage" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#services/ventilation_usage_prediction> a sal:Service ;
+    sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/10>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/11> ;
+    sal:name "ventilation_usage_prediction" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#services/weather> a sal:Service ;
+    sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/0> ;
+    sal:name "weather" .
+
+ns2:Outdoors rdfs:subClassOf ns2:Location .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/1> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:Temperature ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:DegreeCelcius ;
+    sal:location "[].Temp" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/12> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> ;
+    sal:hasModality sali:Power ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Watts ;
+    sal:location "[].Power" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/13> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> ;
+    sal:hasModality sali:Power ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Watts ;
+    sal:location "[].Power" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/14> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> ;
+    sal:hasModality sali:Certainty ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Percent ;
+    sal:location "[].Certainty" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/15> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> ;
+    sal:hasModality sali:Certainty ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Percent ;
+    sal:location "[].Certainty" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/16> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> ;
+    sal:hasModality sali:AbsoluteTime ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:DateTime ;
+    sal:location "[].Timestamp" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/17> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> ;
+    sal:hasModality sali:AbsoluteTime ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:DateTime ;
+    sal:location "[].Timestamp" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/19> a sal:Information ;
+    sal:hasLocation default:outdoors ;
+    sal:hasModality sali:Energy ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:WattHours ;
+    sal:location "[].WattHours" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/2> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:Illumination ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Lux ;
+    sal:location "[].Illumination" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/20> a sal:Information ;
+    sal:hasLocation default:outdoors ;
+    sal:hasModality sali:AbsoluteTime ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:DateTime ;
+    sal:location "[].Timestamp" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/22> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:Performance ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Percent ;
+    sal:location "[].PerformanceIndicator" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/23> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:AbsoluteTime ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:DateTime ;
+    sal:location "[].Timestamp" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/25> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:PowerFlexibility ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Watts ;
+    sal:location "[].Watts" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/3> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:Wind ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:MetersPerSecond ;
+    sal:location "[].WindSpeed" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/4> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:Humidity ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Percentage ;
+    sal:location "[].Humidity" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/5> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> ;
+    sal:hasModality sali:AbsoluteTime ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:DateTime ;
+    sal:location "[].Timestamp" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/8> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> ;
+    sal:hasModality sali:Presence ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Count ;
+    sal:location "[].Count" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#info/9> a sal:Information ;
+    sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> ;
+    sal:hasModality sali:Presence ;
+    sal:hasTemporalAspect sali:Prediction ;
+    sal:hasUnit sali:Boolean ;
+    sal:location "[].Present" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/0> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/1>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/2>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/3>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/4>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/5> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/weather" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/10> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/12>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/14>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/16> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/vent/r1" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/11> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/13>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/15>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/17> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/vent/r2" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/18> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/19>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/20> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/solar" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/21> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/22>,
+        <https://ontology.hviidnet.com/defaultbuilding.ttl#info/23> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/energy" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/24> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/25> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/flex" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/6> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/8> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/presence/r1" ;
+    sal:write "False" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/7> a sal:ServiceEndpoint ;
+    sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/9> ;
+    sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
+    sal:priority "1" ;
+    sal:read "True" ;
+    sal:url "jah.demo/presence/r2" ;
+    sal:write "False" .
+
+default:outdoors a ns2:Outdoors ;
+    ns2:label "outdoors" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> a ns2:Room ;
+    ns2:label "Room_1" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> a ns2:Room ;
+    ns2:label "Room_2" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Default> a ns2:Building ;
+    ns2:label "Default" .
+
+<https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> a ns1:Organization ;
+    ns1:legalName "?" .
+

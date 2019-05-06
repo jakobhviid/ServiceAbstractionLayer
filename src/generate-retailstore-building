@@ -1,0 +1,62 @@
+#!/usr/bin/env python3.5
+
+from sys import argv, exit
+
+from shared import *
+
+# guard: command line arguments
+if len(argv) != 2:
+    print('Syntax: %s OUTPUT_FILENAME' % argv[0])
+    print('        %s ../var/defaultbuilding.ttl' % argv[0])
+    exit(0)
+
+output_filename = argv[1]
+
+# add organizations
+sdu = construct_organization('?')
+
+# add outdoors
+outdoors = construct_outdoors()
+
+# add buildings
+ou44 = construct_building('Føtex')
+
+# add rooms
+r1 = construct_room('Room 1')
+r2 = construct_room('Room 2')
+
+# add weather service
+weather_service = construct_service('weather')
+weather_sep = construct_sep(weather_service, sdu, 'jah.demo/weather', True, False, 1)
+weather_info1 = construct_information(weather_sep, "[].Temp", SALI['Temperature'], SALI['DegreeCelcius'], SALI['Prediction'], ou44)
+weather_info2 = construct_information(weather_sep, "[].Illumination", SALI['Illumination'], SALI['Lux'], SALI['Prediction'], ou44)
+weather_info3 = construct_information(weather_sep, "[].WindSpeed", SALI['Wind'], SALI['MetersPerSecond'], SALI['Prediction'], ou44)
+weather_info4 = construct_information(weather_sep, "[].Humidity", SALI['Humidity'], SALI['Percentage'], SALI['Prediction'], ou44)
+weather_info5 = construct_information(weather_sep, "[].Timestamp", SALI['AbsoluteTime'], SALI['DateTime'], SALI['Prediction'], ou44)
+
+prediction_service = construct_service('pred')
+
+# add presence service
+presence_sep1 = construct_sep(prediction_service, sdu, 'jah.demo/presence/r1', True, False, 1)
+presence_sep2 = construct_sep(prediction_service, sdu, 'jah.demo/presence/r2', True, False, 1)
+presence_info1 = construct_information(presence_sep1, "[].Count", SALI['Presence'], SALI['Count'], SALI['Prediction'], r1)
+presence_info2 = construct_information(presence_sep2, "[].Present", SALI['Presence'], SALI['Boolean'], SALI['Prediction'], r2)
+
+# add ventilation service
+vent_sep1 = construct_sep(prediction_service, sdu, 'jah.demo/vent/r1', True, False, 1)
+vent_sep2 = construct_sep(prediction_service, sdu, 'jah.demo/vent/r2', True, False, 1)
+vent_info1 = construct_information(vent_sep1, "[].Power", SALI['Power'], SALI['Watts'], SALI['Prediction'], r1)
+vent_info2 = construct_information(vent_sep2, "[].Power", SALI['Power'], SALI['Watts'], SALI['Prediction'], r2)
+vent_info3 = construct_information(vent_sep1, "[].Certainty", SALI['Certainty'], SALI['Percent'], SALI['Prediction'], r1)
+vent_info4 = construct_information(vent_sep2, "[].Certainty", SALI['Certainty'], SALI['Percent'], SALI['Prediction'], r2)
+vent_info5 = construct_information(vent_sep1, "[].Timestamp", SALI['AbsoluteTime'], SALI['DateTime'], SALI['Prediction'], r1)
+vent_info6 = construct_information(vent_sep2, "[].Timestamp", SALI['AbsoluteTime'], SALI['DateTime'], SALI['Prediction'], r2)
+
+# add flex service
+flex_service = construct_service('flexibility estimator')
+flex_sep1 = construct_sep(flex_service, sdu, 'jah.demo/flex', True, False, 1)
+flex_info1 = construct_information(flex_sep1, "[].Watts", SALI['PowerFlexibility'], SALI['Watts'], SALI['Prediction'], ou44)
+
+# store result
+serialize(output_filename)
+

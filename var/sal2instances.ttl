@@ -1,0 +1,125 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sal: <https://ontology.hviidnet.com/sal2.ttl#> .
+@prefix sali: <https://ontology.hviidnet.com/sal2instances.ttl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sali:AbsoluteTime a sal:AbsoluteTime .
+
+sali:Angle a sal:Angle .
+
+sali:Archival a sal:Archival .
+
+sali:Boolean a sal:Boolean .
+
+sali:CO2 a sal:CO2 .
+
+sali:Certainty a sal:Certainty .
+
+sali:Count a sal:Count .
+
+sali:CubicMeters a sal:CubicMeters .
+
+sali:CubicMetersPerHour a sal:CubicMetersPerHour .
+
+sali:CubicMetersPerSecond a sal:CubicMetersPerSecond .
+
+sali:Date a sal:Date .
+
+sali:DateTime a sal:DateTime .
+
+sali:Datetime a sal:Datetime .
+
+sali:DegreeCelcius a sal:DegreeCelcius .
+
+sali:DegreeFahrenheit a sal:DegreeFahrenheit .
+
+sali:Degrees a sal:Degrees .
+
+sali:Energy a sal:Energy .
+
+sali:Flow a sal:Flow .
+
+sali:GigaByte a sal:GigaByte .
+
+sali:Hertz a sal:Hertz .
+
+sali:Hours a sal:Hours .
+
+sali:Humidity a sal:Humidity .
+
+sali:Illuminance a sal:Illuminance .
+
+sali:Joules a sal:Joules .
+
+sali:JoulesPerCubicMeter a sal:JoulesPerCubicMeter .
+
+sali:Kelvin a sal:Kelvin .
+
+sali:KiloByte a sal:KiloByte .
+
+sali:KiloJoulesPerSquareMeter a sal:KiloJoulesPerSquareMeter .
+
+sali:KiloMeters a sal:KiloMeters .
+
+sali:KiloWattHours a sal:KiloWattHours .
+
+sali:KiloWatts a sal:KiloWatts .
+
+sali:Lux a sal:Lux .
+
+sali:MetersPerSecond a sal:MetersPerSecond .
+
+sali:MilliAmperes a sal:MilliAmperes .
+
+sali:MilliMeters a sal:MilliMeters .
+
+sali:MilliSeconds a sal:MilliSeconds .
+
+sali:MilliVolts a sal:MilliVolts .
+
+sali:MilliWattHours a sal:MilliWattHours .
+
+sali:MilliWatts a sal:MilliWatts .
+
+sali:Minutes a sal:Minutes .
+
+sali:PartsPerMillion a sal:PartsPerMillion .
+
+sali:Pascal a sal:Pascal .
+
+sali:Percent a sal:Percent .
+
+sali:Performance a sal:Performance .
+
+sali:Power a sal:Power .
+
+sali:PowerFlexibility a sal:PowerFlexibility .
+
+sali:Prediction a sal:Prediction .
+
+sali:Presence a sal:Presence .
+
+sali:Pressure a sal:Pressure .
+
+sali:Rain a sal:Rain .
+
+sali:RealTime a sal:RealTime .
+
+sali:RelativeTime a sal:RelativeTime .
+
+sali:RotationsPerMinute a sal:RotationsPerMinute .
+
+sali:Temperature a sal:Temperature .
+
+sali:Time a sal:Time .
+
+sali:Unitless a sal:Unitless .
+
+sali:Volts a sal:Volts .
+
+sali:Watts a sal:Watts .
+
+sali:Wind a sal:Wind .
+
