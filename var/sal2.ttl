@@ -14,6 +14,19 @@
 #    Object Properties
 #################################################################
 
+###  https://ontology.hviidnet.com/sal2.ttl#consumesInformation
+:consumesInformation rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :directionalInformation ;
+                     rdfs:domain :KafkaRWServiceEndpoint ,
+                                 :KafkaWServiceEndpoint ;
+                     rdfs:range :Information .
+
+
+###  https://ontology.hviidnet.com/sal2.ttl#directionalInformation
+:directionalInformation rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty .
+
+
 ###  https://ontology.hviidnet.com/sal2.ttl#hasLocation
 :hasLocation rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
@@ -58,22 +71,10 @@
 
 ###  https://ontology.hviidnet.com/sal2.ttl#providesInformation
 :providesInformation rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:subPropertyOf :directionalInformation ;
+                     rdfs:domain :KafkaRServiceEndpoint ,
+                                 :KafkaRWServiceEndpoint ;
                      rdfs:range :Information .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#providesRequestInformation
-:providesRequestInformation rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf owl:topObjectProperty ;
-                            rdfs:domain :ServiceEndpoint ;
-                            rdfs:range :RequestInformation .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#providesResponseInformation
-:providesResponseInformation rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf owl:topObjectProperty ;
-                             rdfs:domain :ServiceEndpoint ;
-                             rdfs:range :ResponseInformation .
 
 
 #################################################################
@@ -101,18 +102,12 @@
           rdfs:range xsd:int .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#read
-:read rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf owl:topDataProperty ;
-      rdfs:range xsd:boolean .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#read_url
-:read_url rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf owl:topDataProperty ;
-          rdfs:domain :KafkaRServiceEndpoint ,
-                      :KafkaRWServiceEndpoint ;
-          rdfs:range xsd:string .
+###  https://ontology.hviidnet.com/sal2.ttl#read_topic
+:read_topic rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :KafkaRServiceEndpoint ,
+                        :KafkaRWServiceEndpoint ;
+            rdfs:range xsd:string .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#url
@@ -129,18 +124,12 @@
       rdfs:range xsd:string .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#write
-:write rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf owl:topDataProperty ;
-       rdfs:range xsd:boolean .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#write_url
-:write_url rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :KafkaRWServiceEndpoint ,
-                       :KafkaWServiceEndpoint ;
-           rdfs:range xsd:string .
+###  https://ontology.hviidnet.com/sal2.ttl#write_topic
+:write_topic rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :KafkaRWServiceEndpoint ,
+                         :KafkaWServiceEndpoint ;
+             rdfs:range xsd:string .
 
 
 #################################################################
@@ -466,16 +455,6 @@ schema:Organization rdf:type owl:Class .
 ###  https://ontology.hviidnet.com/sal2.ttl#RelativeTime
 :RelativeTime rdf:type owl:Class ;
               rdfs:subClassOf :Modality .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#RequestInformation
-:RequestInformation rdf:type owl:Class ;
-                    rdfs:subClassOf :Information .
-
-
-###  https://ontology.hviidnet.com/sal2.ttl#ResponseInformation
-:ResponseInformation rdf:type owl:Class ;
-                     rdfs:subClassOf :Information .
 
 
 ###  https://ontology.hviidnet.com/sal2.ttl#RestServiceEndpoint

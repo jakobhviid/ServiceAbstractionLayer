@@ -2,8 +2,8 @@
     [
         "?",
         "None",
-        "jah.demo/weather3",
-        "10",
+        "jah.demo/weather",
+        "1",
         "http://brickschema.org/ttl/Brick.ttl#Building",
         "GTH",
         "[].Temp",
@@ -16,8 +16,8 @@
     [
         "?",
         "None",
-        "jah.demo/weather",
-        "1",
+        "jah.demo/weather3",
+        "10",
         "http://brickschema.org/ttl/Brick.ttl#Building",
         "GTH",
         "[].Temp",
