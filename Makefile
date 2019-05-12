@@ -3,7 +3,7 @@ BUILDING_MODELS  = $(patsubst src/generate-%-building,var/models/%.ttl,${BUILDIN
 BUILDING_RESULTS = $(patsubst src/generate-%-building,test/%,${BUILDING_GENERATORS})
 
 TARGETS = \
-	var/sal2instances.ttl \
+	var/sali.ttl \
 	${BUILDING_MODELS} \
 	${BUILDING_TARGETS} \
 
@@ -28,8 +28,8 @@ var/models:
 
 
 
-var/sal2instances.ttl: src/inject-instances var/sal2.ttl
-	./src/inject-instances var/sal2.ttl var/sal2instances.ttl
+var/sali.ttl: src/inject-instances var/sal.ttl
+	./src/inject-instances var/sal.ttl var/sali.ttl
 
 # generic rule for generating building models
 ${BUILDING_MODELS}: var/models/%.ttl: src/generate-%-building src/shared.py

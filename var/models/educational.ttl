@@ -1,10 +1,10 @@
 @prefix default: <https://ontology.hviidnet.com/defaultbuilding.ttl#> .
-@prefix ns1: <http://brickschema.org/ttl/Brick.ttl#> .
-@prefix ns2: <http://schema.org/version/latest/schema.ttl#> .
+@prefix ns1: <http://schema.org/version/latest/schema.ttl#> .
+@prefix ns2: <http://brickschema.org/ttl/Brick.ttl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sal: <https://ontology.hviidnet.com/sal2.ttl#> .
-@prefix sali: <https://ontology.hviidnet.com/sal2instances.ttl#> .
+@prefix sal: <https://ontology.hviidnet.com/sal.ttl#> .
+@prefix sali: <https://ontology.hviidnet.com/sali.ttl#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -30,7 +30,7 @@
     sal:hasServiceEndpoint <https://ontology.hviidnet.com/defaultbuilding.ttl#sep/0> ;
     sal:name "weather" .
 
-ns1:Outdoors rdfs:subClassOf ns1:Location .
+ns2:Outdoors rdfs:subClassOf ns2:Location .
 
 <https://ontology.hviidnet.com/defaultbuilding.ttl#info/1> a sal:Information ;
     sal:hasLocation <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/OU44> ;
@@ -209,18 +209,18 @@ ns1:Outdoors rdfs:subClassOf ns1:Location .
     sal:url "jah.demo/presence/r2" ;
     sal:write "False" .
 
-default:outdoors a ns1:Outdoors ;
-    ns1:label "outdoors" .
+default:outdoors a ns2:Outdoors ;
+    ns2:label "outdoors" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> a ns1:Room ;
-    ns1:label "Room_1" .
+<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> a ns2:Room ;
+    ns2:label "Room_1" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> a ns1:Room ;
-    ns1:label "Room_2" .
+<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_2> a ns2:Room ;
+    ns2:label "Room_2" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/OU44> a ns1:Building ;
-    ns1:label "OU44" .
+<https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/OU44> a ns2:Building ;
+    ns2:label "OU44" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#organization/SDU> a ns2:Organization ;
-    ns2:legalName "SDU" .
+<https://ontology.hviidnet.com/defaultbuilding.ttl#organization/SDU> a ns1:Organization ;
+    ns1:legalName "SDU" .
 

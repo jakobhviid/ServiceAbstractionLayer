@@ -1,4 +1,4 @@
-@prefix : <https://ontology.hviidnet.com/sal2.ttl#> .
+@prefix : <https://ontology.hviidnet.com/sal.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -6,15 +6,15 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix brick: <http://brickschema.org/ttl/Brick.ttl#> .
 @prefix schema: <http://schema.org/version/latest/schema.ttl#> .
-@base <https://ontology.hviidnet.com/sal2.ttl> .
+@base <https://ontology.hviidnet.com/sal.ttl> .
 
-<https://ontology.hviidnet.com/sal2.ttl> rdf:type owl:Ontology .
+<https://ontology.hviidnet.com/sal.ttl> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://ontology.hviidnet.com/sal2.ttl#consumesInformation
+###  https://ontology.hviidnet.com/sal.ttl#consumesInformation
 :consumesInformation rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :directionalInformation ;
                      rdfs:domain :KafkaRWServiceEndpoint ,
@@ -22,54 +22,74 @@
                      rdfs:range :Information .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#directionalInformation
+###  https://ontology.hviidnet.com/sal.ttl#directionalInformation
 :directionalInformation rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf owl:topObjectProperty .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#hasLocation
+###  https://ontology.hviidnet.com/sal.ttl#hasKafkaRServiceEndpoint
+:hasKafkaRServiceEndpoint rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :hasKafkaServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal.ttl#hasKafkaRWServiceEndpoint
+:hasKafkaRWServiceEndpoint rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf :hasKafkaServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal.ttl#hasKafkaServiceEndpoint
+:hasKafkaServiceEndpoint rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :hasServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal.ttl#hasKafkaWServiceEndpoint
+:hasKafkaWServiceEndpoint rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :hasKafkaServiceEndpoint .
+
+
+###  https://ontology.hviidnet.com/sal.ttl#hasLocation
 :hasLocation rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain :Information ;
              rdfs:range brick:Location .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#hasModality
+###  https://ontology.hviidnet.com/sal.ttl#hasModality
 :hasModality rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain :Information ;
              rdfs:range :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#hasServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#hasServiceEndpoint
 :hasServiceEndpoint rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
                     rdfs:domain :Service ;
                     rdfs:range :ServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#hasTemporalAspect
+###  https://ontology.hviidnet.com/sal.ttl#hasTemporalAspect
 :hasTemporalAspect rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf owl:topObjectProperty ;
                    rdfs:domain :Information ;
                    rdfs:range :TemporalAspect .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#hasUnit
+###  https://ontology.hviidnet.com/sal.ttl#hasUnit
 :hasUnit rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain :Information ;
          rdfs:range :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#ownedBy
+###  https://ontology.hviidnet.com/sal.ttl#ownedBy
 :ownedBy rdf:type owl:ObjectProperty ;
          rdfs:subPropertyOf owl:topObjectProperty ;
          rdfs:domain :ServiceEndpoint ;
          rdfs:range schema:Organization .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#providesInformation
+###  https://ontology.hviidnet.com/sal.ttl#providesInformation
 :providesInformation rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :directionalInformation ;
                      rdfs:domain :KafkaRServiceEndpoint ,
@@ -81,28 +101,28 @@
 #    Data properties
 #################################################################
 
-###  https://ontology.hviidnet.com/sal2.ttl#location
+###  https://ontology.hviidnet.com/sal.ttl#location
 :location rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain :Information ;
           rdfs:range xsd:string .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#name
+###  https://ontology.hviidnet.com/sal.ttl#name
 :name rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
       rdfs:domain :Service ;
       rdfs:range xsd:string .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#priority
+###  https://ontology.hviidnet.com/sal.ttl#priority
 :priority rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain :ServiceEndpoint ;
           rdfs:range xsd:int .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#read_topic
+###  https://ontology.hviidnet.com/sal.ttl#read_topic
 :read_topic rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain :KafkaRServiceEndpoint ,
@@ -110,21 +130,21 @@
             rdfs:range xsd:string .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#url
+###  https://ontology.hviidnet.com/sal.ttl#url
 :url rdf:type owl:DatatypeProperty ;
      rdfs:subPropertyOf owl:topDataProperty ;
      rdfs:domain :RestServiceEndpoint ;
      rdfs:range xsd:string .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#verb
+###  https://ontology.hviidnet.com/sal.ttl#verb
 :verb rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
       rdfs:domain :RestServiceEndpoint ;
       rdfs:range xsd:string .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#write_topic
+###  https://ontology.hviidnet.com/sal.ttl#write_topic
 :write_topic rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :KafkaRWServiceEndpoint ,
@@ -144,366 +164,366 @@ brick:Location rdf:type owl:Class .
 schema:Organization rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#AbsoluteTime
+###  https://ontology.hviidnet.com/sal.ttl#AbsoluteTime
 :AbsoluteTime rdf:type owl:Class ;
               rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Angle
+###  https://ontology.hviidnet.com/sal.ttl#Angle
 :Angle rdf:type owl:Class ;
        rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Archival
+###  https://ontology.hviidnet.com/sal.ttl#Archival
 :Archival rdf:type owl:Class ;
           rdfs:subClassOf :TemporalAspect .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Boolean
+###  https://ontology.hviidnet.com/sal.ttl#Boolean
 :Boolean rdf:type owl:Class ;
          rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#CO2
+###  https://ontology.hviidnet.com/sal.ttl#CO2
 :CO2 rdf:type owl:Class ;
      rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Certainty
+###  https://ontology.hviidnet.com/sal.ttl#Certainty
 :Certainty rdf:type owl:Class ;
            rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Count
+###  https://ontology.hviidnet.com/sal.ttl#Count
 :Count rdf:type owl:Class ;
        rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#CubicMeters
+###  https://ontology.hviidnet.com/sal.ttl#CubicMeters
 :CubicMeters rdf:type owl:Class ;
              rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#CubicMetersPerHour
+###  https://ontology.hviidnet.com/sal.ttl#CubicMetersPerHour
 :CubicMetersPerHour rdf:type owl:Class ;
                     rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#CubicMetersPerSecond
+###  https://ontology.hviidnet.com/sal.ttl#CubicMetersPerSecond
 :CubicMetersPerSecond rdf:type owl:Class ;
                       rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Date
+###  https://ontology.hviidnet.com/sal.ttl#Date
 :Date rdf:type owl:Class ;
       rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#DateTime
+###  https://ontology.hviidnet.com/sal.ttl#DateTime
 :DateTime rdf:type owl:Class ;
           rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Datetime
+###  https://ontology.hviidnet.com/sal.ttl#Datetime
 :Datetime rdf:type owl:Class ;
           rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#DegreeCelcius
+###  https://ontology.hviidnet.com/sal.ttl#DegreeCelcius
 :DegreeCelcius rdf:type owl:Class ;
                rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#DegreeFahrenheit
+###  https://ontology.hviidnet.com/sal.ttl#DegreeFahrenheit
 :DegreeFahrenheit rdf:type owl:Class ;
                   rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Degrees
+###  https://ontology.hviidnet.com/sal.ttl#Degrees
 :Degrees rdf:type owl:Class ;
          rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Energy
+###  https://ontology.hviidnet.com/sal.ttl#Energy
 :Energy rdf:type owl:Class ;
         rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Epoch
+###  https://ontology.hviidnet.com/sal.ttl#Epoch
 :Epoch rdf:type owl:Class ;
        rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#ErroneousOccupancyCount
+###  https://ontology.hviidnet.com/sal.ttl#ErroneousOccupancyCount
 :ErroneousOccupancyCount rdf:type owl:Class ;
                          rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Flow
+###  https://ontology.hviidnet.com/sal.ttl#Flow
 :Flow rdf:type owl:Class ;
       rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#GigaByte
+###  https://ontology.hviidnet.com/sal.ttl#GigaByte
 :GigaByte rdf:type owl:Class ;
           rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Hertz
+###  https://ontology.hviidnet.com/sal.ttl#Hertz
 :Hertz rdf:type owl:Class ;
        rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Hours
+###  https://ontology.hviidnet.com/sal.ttl#Hours
 :Hours rdf:type owl:Class ;
        rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Humidity
+###  https://ontology.hviidnet.com/sal.ttl#Humidity
 :Humidity rdf:type owl:Class ;
           rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Illuminance
+###  https://ontology.hviidnet.com/sal.ttl#Illuminance
 :Illuminance rdf:type owl:Class ;
              rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Information
+###  https://ontology.hviidnet.com/sal.ttl#Information
 :Information rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Joules
+###  https://ontology.hviidnet.com/sal.ttl#Joules
 :Joules rdf:type owl:Class ;
         rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#JoulesPerCubicMeter
+###  https://ontology.hviidnet.com/sal.ttl#JoulesPerCubicMeter
 :JoulesPerCubicMeter rdf:type owl:Class ;
                      rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KafkaRServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#KafkaRServiceEndpoint
 :KafkaRServiceEndpoint rdf:type owl:Class ;
                        rdfs:subClassOf :KafkaServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KafkaRWServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#KafkaRWServiceEndpoint
 :KafkaRWServiceEndpoint rdf:type owl:Class ;
                         rdfs:subClassOf :KafkaServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KafkaServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#KafkaServiceEndpoint
 :KafkaServiceEndpoint rdf:type owl:Class ;
                       rdfs:subClassOf :PubsubServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KafkaWServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#KafkaWServiceEndpoint
 :KafkaWServiceEndpoint rdf:type owl:Class ;
                        rdfs:subClassOf :KafkaServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Kelvin
+###  https://ontology.hviidnet.com/sal.ttl#Kelvin
 :Kelvin rdf:type owl:Class ;
         rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KiloByte
+###  https://ontology.hviidnet.com/sal.ttl#KiloByte
 :KiloByte rdf:type owl:Class ;
           rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KiloJoulesPerSquareMeter
+###  https://ontology.hviidnet.com/sal.ttl#KiloJoulesPerSquareMeter
 :KiloJoulesPerSquareMeter rdf:type owl:Class ;
                           rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KiloMeters
+###  https://ontology.hviidnet.com/sal.ttl#KiloMeters
 :KiloMeters rdf:type owl:Class ;
             rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KiloWattHours
+###  https://ontology.hviidnet.com/sal.ttl#KiloWattHours
 :KiloWattHours rdf:type owl:Class ;
                rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#KiloWatts
+###  https://ontology.hviidnet.com/sal.ttl#KiloWatts
 :KiloWatts rdf:type owl:Class ;
            rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Lux
+###  https://ontology.hviidnet.com/sal.ttl#Lux
 :Lux rdf:type owl:Class ;
      rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MetersPerSecond
+###  https://ontology.hviidnet.com/sal.ttl#MetersPerSecond
 :MetersPerSecond rdf:type owl:Class ;
                  rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MilliAmperes
+###  https://ontology.hviidnet.com/sal.ttl#MilliAmperes
 :MilliAmperes rdf:type owl:Class ;
               rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MilliMeters
+###  https://ontology.hviidnet.com/sal.ttl#MilliMeters
 :MilliMeters rdf:type owl:Class ;
              rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MilliSeconds
+###  https://ontology.hviidnet.com/sal.ttl#MilliSeconds
 :MilliSeconds rdf:type owl:Class ;
               rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MilliVolts
+###  https://ontology.hviidnet.com/sal.ttl#MilliVolts
 :MilliVolts rdf:type owl:Class ;
             rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MilliWattHours
+###  https://ontology.hviidnet.com/sal.ttl#MilliWattHours
 :MilliWattHours rdf:type owl:Class ;
                 rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#MilliWatts
+###  https://ontology.hviidnet.com/sal.ttl#MilliWatts
 :MilliWatts rdf:type owl:Class ;
             rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Minutes
+###  https://ontology.hviidnet.com/sal.ttl#Minutes
 :Minutes rdf:type owl:Class ;
          rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Modality
+###  https://ontology.hviidnet.com/sal.ttl#Modality
 :Modality rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#NotApplicable
+###  https://ontology.hviidnet.com/sal.ttl#NotApplicable
 :NotApplicable rdf:type owl:Class ;
                rdfs:subClassOf :TemporalAspect .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#OccupancyCount
+###  https://ontology.hviidnet.com/sal.ttl#OccupancyCount
 :OccupancyCount rdf:type owl:Class ;
                 rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#PartsPerMillion
+###  https://ontology.hviidnet.com/sal.ttl#PartsPerMillion
 :PartsPerMillion rdf:type owl:Class ;
                  rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Pascal
+###  https://ontology.hviidnet.com/sal.ttl#Pascal
 :Pascal rdf:type owl:Class ;
         rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Percent
+###  https://ontology.hviidnet.com/sal.ttl#Percent
 :Percent rdf:type owl:Class ;
          rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Performance
+###  https://ontology.hviidnet.com/sal.ttl#Performance
 :Performance rdf:type owl:Class ;
              rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Power
+###  https://ontology.hviidnet.com/sal.ttl#Power
 :Power rdf:type owl:Class ;
        rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#PowerFlexibility
+###  https://ontology.hviidnet.com/sal.ttl#PowerFlexibility
 :PowerFlexibility rdf:type owl:Class ;
                   rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Prediction
+###  https://ontology.hviidnet.com/sal.ttl#Prediction
 :Prediction rdf:type owl:Class ;
             rdfs:subClassOf :TemporalAspect .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Presence
+###  https://ontology.hviidnet.com/sal.ttl#Presence
 :Presence rdf:type owl:Class ;
           rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Pressure
+###  https://ontology.hviidnet.com/sal.ttl#Pressure
 :Pressure rdf:type owl:Class ;
           rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#PubsubServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#PubsubServiceEndpoint
 :PubsubServiceEndpoint rdf:type owl:Class ;
                        rdfs:subClassOf :ServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Rain
+###  https://ontology.hviidnet.com/sal.ttl#Rain
 :Rain rdf:type owl:Class ;
       rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#RealTime
+###  https://ontology.hviidnet.com/sal.ttl#RealTime
 :RealTime rdf:type owl:Class ;
           rdfs:subClassOf :TemporalAspect .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#RelativeTime
+###  https://ontology.hviidnet.com/sal.ttl#RelativeTime
 :RelativeTime rdf:type owl:Class ;
               rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#RestServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#RestServiceEndpoint
 :RestServiceEndpoint rdf:type owl:Class ;
                      rdfs:subClassOf :ServiceEndpoint .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#RotationsPerMinute
+###  https://ontology.hviidnet.com/sal.ttl#RotationsPerMinute
 :RotationsPerMinute rdf:type owl:Class ;
                     rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Service
+###  https://ontology.hviidnet.com/sal.ttl#Service
 :Service rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#ServiceEndpoint
+###  https://ontology.hviidnet.com/sal.ttl#ServiceEndpoint
 :ServiceEndpoint rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Temperature
+###  https://ontology.hviidnet.com/sal.ttl#Temperature
 :Temperature rdf:type owl:Class ;
              rdfs:subClassOf :Modality .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#TemporalAspect
+###  https://ontology.hviidnet.com/sal.ttl#TemporalAspect
 :TemporalAspect rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Unit
+###  https://ontology.hviidnet.com/sal.ttl#Unit
 :Unit rdf:type owl:Class .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Unitless
+###  https://ontology.hviidnet.com/sal.ttl#Unitless
 :Unitless rdf:type owl:Class ;
           rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Volts
+###  https://ontology.hviidnet.com/sal.ttl#Volts
 :Volts rdf:type owl:Class ;
        rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Watts
+###  https://ontology.hviidnet.com/sal.ttl#Watts
 :Watts rdf:type owl:Class ;
        rdfs:subClassOf :Unit .
 
 
-###  https://ontology.hviidnet.com/sal2.ttl#Wind
+###  https://ontology.hviidnet.com/sal.ttl#Wind
 :Wind rdf:type owl:Class ;
       rdfs:subClassOf :Modality .
 

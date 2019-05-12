@@ -16,7 +16,7 @@ def query (q):
 # guard: command line arguments
 if len(argv) != 3:
     print('Syntax: %s INPUT_FILENAME OUTPUT_FILENAME' % argv[0])
-    print('        %s ../var/sal2.ttl ../var/sal2instances.ttl' % argv[0])
+    print('        %s ../var/sal.ttl ../var/sali.ttl' % argv[0])
     exit(0)
 
 input_filename  = argv[1]
@@ -29,9 +29,9 @@ RDF = rdflib.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 
 # graph for predifined instances
 gi = rdflib.Graph()
-SAL = rdflib.Namespace('https://ontology.hviidnet.com/sal2.ttl#')
+SAL = rdflib.Namespace('https://ontology.hviidnet.com/sal.ttl#')
 gi.bind('sal', SAL)
-SALI = rdflib.Namespace('https://ontology.hviidnet.com/sal2instances.ttl#')
+SALI = rdflib.Namespace('https://ontology.hviidnet.com/sali.ttl#')
 gi.bind('sali', SALI)
 
 # produce unit instances
