@@ -9,7 +9,7 @@
 ## Building Ontology
 
 ```shell
-make var/sal2instances.ttl
+make var/sali.ttl
 ```
 
 ## Building Model
