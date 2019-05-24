@@ -43,6 +43,10 @@
 
 
 ###  https://ontology.hviidnet.com/sal.ttl#hasKafkaWServiceEndpoint
+:hasRestServiceEndpoint rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :hasServiceEndpoint .
+
+###  https://ontology.hviidnet.com/sal.ttl#hasKafkaWServiceEndpoint
 :hasKafkaWServiceEndpoint rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf :hasKafkaServiceEndpoint .
 
