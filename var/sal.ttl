@@ -517,6 +517,11 @@ schema:Organization rdf:type owl:Class .
           rdfs:subClassOf :Unit .
 
 
+###  https://ontology.hviidnet.com/sal.ttl#UUID
+:UUID rdf:type owl:Class ;
+           rdfs:subClassOf :Modality .
+
+
 ###  https://ontology.hviidnet.com/sal.ttl#Volts
 :Volts rdf:type owl:Class ;
        rdfs:subClassOf :Unit .

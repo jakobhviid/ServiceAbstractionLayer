@@ -121,6 +121,8 @@ sali:RotationsPerMinute a sal:RotationsPerMinute .
 
 sali:Temperature a sal:Temperature .
 
+sali:UUID a sal:UUID .
+
 sali:Unitless a sal:Unitless .
 
 sali:Volts a sal:Volts .
