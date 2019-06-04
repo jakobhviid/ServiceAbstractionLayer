@@ -119,7 +119,11 @@ sali:RelativeTime a sal:RelativeTime .
 
 sali:RotationsPerMinute a sal:RotationsPerMinute .
 
+sali:SpatialGranularityModality a sal:SpatialGranularityModality .
+
 sali:Temperature a sal:Temperature .
+
+sali:TemporalAspectModality a sal:TemporalAspectModality .
 
 sali:UUID a sal:UUID .
 
