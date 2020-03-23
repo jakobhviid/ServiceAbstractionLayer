@@ -63,10 +63,24 @@ def construct_service (name):
 def construct_sep (service, organization, url, read, write, priority):
     # add information object
     sep = DEFAULT['sep/%u' % generate_id()]
-    add_instance(sep, SAL['ServiceEndpoint'])
-    add_data_property(sep, SAL['url']     , url)
-    add_data_property(sep, SAL['read']    , read)
-    add_data_property(sep, SAL['write']   , write)
+    if read and write:
+        add_instance(sep, SAL['KafkaRWServiceEndpoint'])
+    elif read:
+        add_instance(sep, SAL['KafkaRServiceEndpoint'])
+    elif write:
+        add_instance(sep, SAL['KafkaWServiceEndpoint'])
+    else:
+        print('ERROR: Attempting to add SEP(%s, %s, %s, %s, %s, %s) with r/w mismatch' % (service, organization, url, read, write, priority))
+    
+    if read:
+        add_data_property(sep, SAL['read_topic'] , url)
+    if write:
+        add_data_property(sep, SAL['write_topic'], url)
+    
+#    add_instance(sep, SAL['ServiceEndpoint'])
+#    add_data_property(sep, SAL['url']     , url)
+#    add_data_property(sep, SAL['read']    , read)
+#    add_data_property(sep, SAL['write']   , write)
     add_data_property(sep, SAL['priority'], priority)
     
     # link service to service endpoint object

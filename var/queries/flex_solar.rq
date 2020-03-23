@@ -21,7 +21,7 @@ WHERE {
     
     # sep
     ?sep rdf:type/rdfs:subClassOf* sal:ServiceEndpoint .
-    ?sep sal:url ?url .
+    ?sep sal:read_topic ?url .
     ?sep sal:priority ?priority .
     
     # energy

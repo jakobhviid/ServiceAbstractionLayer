@@ -219,7 +219,7 @@ ns1:Outdoors rdfs:subClassOf ns1:Location .
     sal:hasUnit sali:MetersPerSecond ;
     sal:location "[].WindSpeed" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/0> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/0> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/1>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/2>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/3>,
@@ -227,11 +227,9 @@ ns1:Outdoors rdfs:subClassOf ns1:Location .
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/5> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/weather" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/weather" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/12> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/12> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/13>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/14>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/15>,
@@ -239,64 +237,50 @@ ns1:Outdoors rdfs:subClassOf ns1:Location .
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/17> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "10" ;
-    sal:read "True" ;
-    sal:url "jah.demo/weather3" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/weather3" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/18> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/18> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/20> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/presence/r1" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/presence/r1" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/19> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/19> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/21> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/presence/r2" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/presence/r2" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/22> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/22> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/24>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/26>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/28> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/vent/r1" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/vent/r1" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/23> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/23> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/25>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/27>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/29> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/vent/r2" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/vent/r2" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/30> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/30> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/31>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/32> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/energy" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/energy" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/33> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/33> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/34> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "1" ;
-    sal:read "True" ;
-    sal:url "jah.demo/flex" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/flex" .
 
-<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/6> a sal:ServiceEndpoint ;
+<https://ontology.hviidnet.com/defaultbuilding.ttl#sep/6> a sal:KafkaRServiceEndpoint ;
     sal:hasInformation <https://ontology.hviidnet.com/defaultbuilding.ttl#info/10>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/11>,
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/7>,
@@ -304,9 +288,7 @@ ns1:Outdoors rdfs:subClassOf ns1:Location .
         <https://ontology.hviidnet.com/defaultbuilding.ttl#info/9> ;
     sal:ownedBy <https://ontology.hviidnet.com/defaultbuilding.ttl#organization/?> ;
     sal:priority "5" ;
-    sal:read "True" ;
-    sal:url "jah.demo/weather2" ;
-    sal:write "False" .
+    sal:read_topic "jah.demo/weather2" .
 
 <https://ontology.hviidnet.com/defaultbuilding.ttl#buildings/Room_1> a ns1:Room ;
     ns1:label "Room_1" .
