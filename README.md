@@ -4,6 +4,8 @@ The SAL is an ontology created with the purpose of describing information expose
 
 This ontology was developed for the Building Operating System (BOS) space (and uses Brick), but could with few adaptions be generalized.
 
+The SAL was developed as a part of the FlexReStore research project at the University of Southern Denmark.
+
 ## Dependencies
 
 - `python3.5` Python Interpreter
