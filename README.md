@@ -6,10 +6,12 @@ This ontology was developed for the Building Operating System (BOS) space (and u
 
 The SAL was developed as a part of the FlexReStore research project at the University of Southern Denmark.
 
+The SAL and SALi ontologies can be found in /var/.
+
 ## Dependencies
 
 - `python3.5` Python Interpreter
-- `python3-rdflib` [RDFLib](https://github.com/RDFLib/rdflib) python module
+- `python3-rdflib` [RDFLib](https://github.com/RDFLib/rdflib) python module (Tested with 4.2.2 - see pipfreeze.txt)
 - `make` Make build system
 
 ## Building Ontology
