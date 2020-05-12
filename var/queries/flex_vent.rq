@@ -1,0 +1,55 @@
+PREFIX schema: <http://schema.org/version/latest/schema.ttl#>
+PREFIX brick:  <http://brickschema.org/ttl/Brick.ttl#>
+PREFIX sal:    <https://ontology.hviidnet.com/sal2.ttl#>
+PREFIX sali:   <https://ontology.hviidnet.com/sal2instances.ttl#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?organization ?building ?url ?priority ?loc_type ?loc_name
+       ?power_location ?power_unit
+       ?certainty_location ?certainty_unit
+       ?time_location ?time_unit
+WHERE {
+    # org
+    ?org rdf:type/rdfs:subClassOf* schema:Organization .
+    ?org schema:legalName ?organization .
+    ?sep sal:ownedBy ?org .
+    
+    # loc(ation)
+    ?loc rdf:type ?loc_type .
+    ?loc_type rdfs:subClassOf* brick:Location .
+    ?loc brick:label ?loc_name .
+    
+    # sep
+    ?sep rdf:type/rdfs:subClassOf* sal:ServiceEndpoint .
+    ?sep sal:read_topic ?url .
+    ?sep sal:priority ?priority .
+    
+    # power
+    ?power rdf:type/rdfs:subClassOf* sal:Information .
+    ?power sal:location ?power_location .
+    ?power sal:hasModality sali:Power .
+    ?power sal:hasUnit ?power_unit .
+    ?power sal:hasTemporalAspect sali:Prediction .
+    ?power sal:hasLocation ?loc .
+    ?sep sal:hasInformation ?power .
+    
+    # certainty
+    ?certainty rdf:type/rdfs:subClassOf* sal:Information .
+    ?certainty sal:location ?certainty_location .
+    ?certainty sal:hasModality sali:Certainty .
+    ?certainty sal:hasUnit ?certainty_unit .
+    ?certainty sal:hasTemporalAspect sali:Prediction .
+    ?certainty sal:hasLocation ?loc .
+    ?sep sal:hasInformation ?certainty .
+    
+    # time
+    ?time rdf:type/rdfs:subClassOf* sal:Information .
+    ?time sal:location ?time_location .
+    ?time sal:hasModality sali:AbsoluteTime .
+    ?time sal:hasUnit ?time_unit .
+    ?time sal:hasTemporalAspect sali:Prediction .
+    ?time sal:hasLocation ?loc .
+    ?sep sal:hasInformation ?time .
+}
+
